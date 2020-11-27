@@ -9,7 +9,7 @@
 
 //MARK: - Task 1 release
 
-void task1() {
+void task1FirstRelease() {
     char word;
     
     NSArray *alphabet = @[
@@ -20,7 +20,8 @@ void task1() {
     printf("Введите букву английского алфавита: ");
     scanf("%s", &word);
     
-    NSString *userInput = [NSString stringWithCString: &word encoding: 1];
+//    NSString *userInput = [NSString stringWithCString: &word encoding: 1];
+    NSString *userInput = [NSString stringWithFormat: @"%c", word];
     
     bool included = false;
     int number = 0;
@@ -35,6 +36,21 @@ void task1() {
     
     if (included) {
         printf("Буква %c входит в английский алфавит и стоит на %d месте в алфавите", word, number);
+    } else {
+        printf("Символ %c не является буквой английского алфавита", word);
+    }
+}
+
+void task1SecondRelease() {
+    char word;
+    NSString *alphabetString = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    
+    printf("Введите букву английского алфавита: ");
+    scanf("%s", &word);
+    
+    NSString *userInput = [NSString stringWithFormat: @"%c", word];
+    if ([alphabetString containsString:userInput]) {
+        printf("Буква %c входит в английский алфавит", word);
     } else {
         printf("Символ %c не является буквой английского алфавита", word);
     }
@@ -113,7 +129,7 @@ void task2() {
 
 void homeWork2() {
     NSLog(@"\n---------------TASK 1--------------------\n");
-    task1();
+    task1SecondRelease();
     printf("\n---------------------------------------\n");
     NSLog(@"\n---------------TASK 2--------------------\n");
     task2();
