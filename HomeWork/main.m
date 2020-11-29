@@ -49,78 +49,84 @@ void task1SecondRelease() {
     scanf("%s", &word);
     
     NSString *userInput = [NSString stringWithFormat: @"%c", word];
-    if ([alphabetString containsString:userInput]) {
-        printf("Буква %c входит в английский алфавит", word);
+    if ([alphabetString containsString: userInput]) {
+        printf("Буква \"%c\" входит в английский алфавит", word);
     } else {
-        printf("Символ %c не является буквой английского алфавита", word);
+        printf("Символ \"%c\" не является буквой английского алфавита", word);
     }
 }
 
 //MARK: - Task 2 release
 
-int sum(int a, int b) {
+double sum(double a, double b) {
     return a + b;
 }
-int subtract(int a, int b) {
+double subtract(double a, double b) {
     return a - b;
 }
-int multiply(int a, int b) {
+double multiply(double a, double b) {
     return a * b;
 }
-float divide(int a, int b) {
-    return (float)a / (float)b;
+double divide(double a, double b) {
+    return a / b;
 }
-int remainderOfDivision(int a, int b) {
-    return a % b;
+double remainderOfDivision(double a, double b) {
+    return (int)a % (int)b;
 }
 
-int calculate(char method, int a, int b) {
+void calculate(char method, double a, double b, void (^completion) (double)) {
     switch (method) {
         case '+':
-            return sum(a, b);
+            completion(sum(a, b));
+            break;
         case '-':
-            return subtract(a, b);
+            completion(subtract(a, b));
+            break;
         case '*':
-            return multiply(a, b);
+            completion(multiply(a, b));
+            break;
         case '/':
-            return divide(a, b);
+            completion(divide(a, b));
+            break;
         case '%':
-            return remainderOfDivision(a, b);
+            completion(remainderOfDivision(a, b));
+            break;
         default:
-            printf("Неизвестный метод\n");
-            return -1;
+            printf("\n-----------------------------------");
+            printf("\nОшибка ввода данных.\nПопробуйте еще раз!");
+            printf("\n-----------------------------------\n");
+            break;
     }
 }
 
 void task2() {
-    int first;
-    int second;
-    bool next = true;
+    double first;
+    double second;
+    BOOL next;
     char method;
-    int result;
     
     do {
+        first = 0.0;
+        second = 0.0;
+        method = '0';
+        
         printf("Введите первое число: ");
-        scanf("%d", &first);
+        scanf("%lg", &first);
         
         printf("Введите второе число: ");
-        scanf("%d", &second);
+        scanf("%lg", &second);
         
         printf("Действие (+, -, *, /, %%) (для выхода введите 0): ");
         scanf("%s", &method);
         
         if (method == '0') {
-            next = false;
-            break;
+            next = NO;
         } else {
-            result = calculate(method, first, second);
-            if (result == -1) {
-                next = false;
-                break;
-            }
-            next = true;
-            printf("%d %c %d = %d", first, method, second, result);
-            printf("\n-----------------------------------\n");
+            calculate(method, first, second, ^(double result) {
+                printf("%lg %c %lg = %lg", first, method, second, result);
+                printf("\n-----------------------------------\n");
+            });
+            next = YES;
         }
     } while (next);
 }
