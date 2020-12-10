@@ -128,7 +128,6 @@
 - (void) dealloc {
     NSLog(@"Калькулятор удален! Dealloc completed!");
     [super dealloc];
-    self = nil;
 }
 
 @end

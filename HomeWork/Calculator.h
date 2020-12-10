@@ -27,7 +27,9 @@ typedef enum CalcOperation CalcOperation;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Calculator : NSObject
+
 @property (nonatomic) CalcOperation calcOperation;
+
 + (CalcOperation) defineTypeOperationBy: (char) method;
 + (double) sumA: (double) a andB: (double) b;
 + (double) subtractA: (double) a andB: (double) b;
