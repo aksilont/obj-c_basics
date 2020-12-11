@@ -10,8 +10,6 @@
 @implementation Bird
 - (instancetype)initWithName:(NSString *)name {
     if (self = [super init]) {
-        [name retain];
-        [_name release];
         _name = name;
         NSLog(@"Создание птицы - %@", name);
     }
@@ -19,7 +17,5 @@
 }
 - (void)dealloc {
     NSLog(@"Уничтожение птицы - %@", _name);
-    [_name release];
-    [super dealloc];
 }
 @end
