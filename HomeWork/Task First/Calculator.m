@@ -9,7 +9,7 @@
 
 @implementation Calculator
 
-+ (CalcOperation) defineTypeOperationBy: (char) method {
++ (CalcOperation)defineTypeOperationBy:(char)method {
     switch (method) {
         case '+':
             return Sum;
@@ -26,60 +26,60 @@
     }
 }
 
-+ (double) sumA: (double) a andB: (double) b {
++ (double)sumA:(double)a andB:(double)b {
     return a + b;
 }
-+ (double) subtractA: (double) a andB: (double) b {
++ (double)subtractA:(double)a andB:(double)b {
     return a - b;
 }
-+ (double) multiplyA: (double) a byB: (double) b {
++ (double)multiplyA:(double)a byB:(double)b {
     return a * b;
 }
-+ (double) divideA: (double) a byB: (double) b {
++ (double)divideA:(double)a byB:(double)b {
     return a / b;
 }
-+ (double) remainderOfDivisionA: (double) a andB: (double) b {
++ (double)remainderOfDivisionA:(double)a andB:(double)b {
     return (int)a % (int)b;
 }
 
-- (instancetype) init {
+- (instancetype)init {
     if (self = [super init]) {
         NSLog(@"Калькулятор инициализирован. Счетчик ссылок = %lu.", (unsigned long)[self retainCount]);
     }
     return self;
 }
 
-- (void) doOperation: (CalcOperation) operation
-               withA: (double) a
-                andB: (double) b
-          completion: (void(^)(double result, CalcError error)) completion {
-        switch (operation) {
-            case Sum:
-                completion([Calculator sumA:a andB:b], None);
-                break;
-            case Subtract:
-                completion([Calculator subtractA:a andB:b], None);
-                break;
-            case Multiply:
-                completion([Calculator multiplyA:a byB:b], None);
-                break;
-            case Divide:
-                if (b == 0) {
-                    completion(0, DivideByZero);
-                } else {
-                    completion([Calculator divideA:a byB:b], None);
-                }
-                break;
-            case RemainderOfDivision:
-                completion([Calculator remainderOfDivisionA:a andB:b], None);
-                break;
-            default:
-                completion(0.0, WrongOperation);
-                break;
-        }
+- (void)doOperation:(CalcOperation)operation
+              withA:(double)a
+               andB:(double)b
+         completion:(void(^)(double result, CalcError error))completion {
+    switch (operation) {
+        case Sum:
+            completion([Calculator sumA:a andB:b], None);
+            break;
+        case Subtract:
+            completion([Calculator subtractA:a andB:b], None);
+            break;
+        case Multiply:
+            completion([Calculator multiplyA:a byB:b], None);
+            break;
+        case Divide:
+            if (b == 0) {
+                completion(0, DivideByZero);
+            } else {
+                completion([Calculator divideA:a byB:b], None);
+            }
+            break;
+        case RemainderOfDivision:
+            completion([Calculator remainderOfDivisionA:a andB:b], None);
+            break;
+        default:
+            completion(0.0, WrongOperation);
+            break;
+    }
 }
 
-- (void) start {
+- (void)start {
     double first;
     double second;
     BOOL next;
@@ -125,7 +125,7 @@
     } while (next);
 }
 
-- (void) dealloc {
+- (void)dealloc {
     NSLog(@"Калькулятор удален! Dealloc completed!");
     [super dealloc];
 }

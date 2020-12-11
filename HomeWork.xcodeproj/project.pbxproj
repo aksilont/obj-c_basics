@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		330C00DA256F95BC0085E24C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 330C00D9256F95BC0085E24C /* main.m */; };
 		3354BB492582536500F0E4B1 /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3354BB482582536500F0E4B1 /* Calculator.m */; };
+		3354BB4E258393F200F0E4B1 /* FlockBirds.m in Sources */ = {isa = PBXBuildFile; fileRef = 3354BB4D258393F200F0E4B1 /* FlockBirds.m */; };
+		3354BB572583947D00F0E4B1 /* Bird.m in Sources */ = {isa = PBXBuildFile; fileRef = 3354BB562583947D00F0E4B1 /* Bird.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +30,10 @@
 		330C00D9256F95BC0085E24C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3354BB472582536500F0E4B1 /* Calculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Calculator.h; sourceTree = "<group>"; };
 		3354BB482582536500F0E4B1 /* Calculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Calculator.m; sourceTree = "<group>"; };
+		3354BB4C258393F200F0E4B1 /* FlockBirds.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlockBirds.h; sourceTree = "<group>"; };
+		3354BB4D258393F200F0E4B1 /* FlockBirds.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlockBirds.m; sourceTree = "<group>"; };
+		3354BB552583947D00F0E4B1 /* Bird.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bird.h; sourceTree = "<group>"; };
+		3354BB562583947D00F0E4B1 /* Bird.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bird.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,10 +67,30 @@
 			isa = PBXGroup;
 			children = (
 				330C00D9256F95BC0085E24C /* main.m */,
+				3354BB522583941200F0E4B1 /* Task First */,
+				3354BB50258393FE00F0E4B1 /* Task Second */,
+			);
+			path = HomeWork;
+			sourceTree = "<group>";
+		};
+		3354BB50258393FE00F0E4B1 /* Task Second */ = {
+			isa = PBXGroup;
+			children = (
+				3354BB4C258393F200F0E4B1 /* FlockBirds.h */,
+				3354BB4D258393F200F0E4B1 /* FlockBirds.m */,
+				3354BB552583947D00F0E4B1 /* Bird.h */,
+				3354BB562583947D00F0E4B1 /* Bird.m */,
+			);
+			path = "Task Second";
+			sourceTree = "<group>";
+		};
+		3354BB522583941200F0E4B1 /* Task First */ = {
+			isa = PBXGroup;
+			children = (
 				3354BB472582536500F0E4B1 /* Calculator.h */,
 				3354BB482582536500F0E4B1 /* Calculator.m */,
 			);
-			path = HomeWork;
+			path = "Task First";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,7 +149,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3354BB4E258393F200F0E4B1 /* FlockBirds.m in Sources */,
 				330C00DA256F95BC0085E24C /* main.m in Sources */,
+				3354BB572583947D00F0E4B1 /* Bird.m in Sources */,
 				3354BB492582536500F0E4B1 /* Calculator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
