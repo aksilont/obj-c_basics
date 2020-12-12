@@ -10,8 +10,7 @@
 #import "FlockBirds.h"
 #import "Bird.h"
 
-int main(int argc, const char * argv[]) {
-    
+void task1() {
     NSLog(@"----------------------------------------------");
     NSLog(@"                TASK 1");
     
@@ -19,7 +18,9 @@ int main(int argc, const char * argv[]) {
     [calculator start];
     [calculator release];
     calculator = nil;
-    
+}
+
+void task2() {
     NSLog(@"----------------------------------------------");
     NSLog(@"                TASK 2");
     
@@ -44,6 +45,12 @@ int main(int argc, const char * argv[]) {
     [flockBirds addBirds:birdsArr];
     
     [flockBirds release];
+}
+
+int main(int argc, const char * argv[]) {
+    
+    task1();
+    task2();
     
     return 0;
 }
